@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Choose Wisely</title>
+
+  <!-- LINK YOUR CSS FILE -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container" id="container">
+
+    <div class="bubble">
+      <h2 id="question">Do you agree to be my valentines?</h2>
+    </div>
+
+    <div class="buttons" id="buttons">
+      <button id="yes">Yes 😌</button>
+      <button id="no">No 😠</button>
+    </div>
+
+  </div>
+
+  <script>
+    const noButton = document.getElementById("no");
+    const yesButton = document.getElementById("yes");
+    const container = document.getElementById("container");
+    const question = document.getElementById("question");
+    const buttons = document.getElementById("buttons");
+
+    noButton.addEventListener("mouseenter", () => {
+      const containerRect = container.getBoundingClientRect();
+      const buttonRect = noButton.getBoundingClientRect();
+
+      const maxX = containerRect.width - buttonRect.width;
+      const maxY = containerRect.height - buttonRect.height;
+
+      noButton.style.left = Math.random() * maxX + "px";
+      noButton.style.top = Math.random() * maxY + "px";
+    });
+
+    yesButton.addEventListener("click", () => {
+      question.textContent = "yaaasssss mamiiiiii 😏";
+      buttons.innerHTML =
+        `<div class="message">You made the only correct decision.</div>`;
+    });
+  </script>
+
+</body>
+</html>
